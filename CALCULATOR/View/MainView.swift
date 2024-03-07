@@ -8,14 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
-    //MARK: Property
-    let buttonsArray: [[Buttons]] = [
-        [.clear, .negativ, .precent, .divide],
-        [.seven, .eight, .nine, .multiple],
-        [.four, .five, .six, .minus],
-        [.one, .two, .three, .plus],
-        [.zero, .decimail, .equal]
-        ]
+    
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         ZStack {
@@ -27,25 +21,24 @@ struct MainView: View {
                 
                 HStack {    //MARK: Display
                     Spacer()
-                    Text("0")
+                    Text(viewModel.value)
                         .foregroundColor(.white)
                         .font(.system(size: 90))
                         .fontWeight(.light)
                         .padding(.horizontal, 28)
-                      
                 }
                 
                 //Mark: Buttons
-                ForEach(buttonsArray, id: \.self) { row in
+                ForEach(viewModel.buttonsArray, id: \.self) { row in  //func
                     HStack(spacing: 10) {
                         ForEach(row, id: \.self) { item in
                             Button {
-                                //
+                                viewModel.didTap(item: item)  //func
                             } label: {
                                 Text(item.rawValue)
                                     .frame(
-                                 width: self.buttonWidth(item: item),
-                                 height: self.buttonHeigth())
+                                        width: viewModel.buttonWidth(item: item),
+                                        height: viewModel.buttonHeigth())
                                     .font(.system(size: 30))
                                     .fontWeight(.bold)
                                     .foregroundColor(item.buttonFontColor)
@@ -59,32 +52,26 @@ struct MainView: View {
             .padding(.bottom)
         }
     }
-    
-    //MARK: Size of Buttons Methods
-    func buttonWidth(item: Buttons) -> CGFloat {  //
-        let spacing: CGFloat = 12
-        let totalSpacing: CGFloat = 5 * spacing
-        let zeroTotalSpacing: CGFloat = 4 * spacing
-        let totalColums: CGFloat = 4
-        let screenWidth: CGFloat = UIScreen.main.bounds.width //sa ekrani laynutyunn e!!!!!!
-        if item == .zero {
-            return (screenWidth - zeroTotalSpacing) / totalColums * 2
-        }
-        
-        return (screenWidth - totalSpacing) / totalColums
-    }
-    //CGFloat-y da kordinatayin chapman miavor e pixselnerov pointnerov [1-pointa da 9-pixele!!!!]
-    
-    func buttonHeigth() -> CGFloat {
-        let spacing: CGFloat = 12
-        let totalSpacing: CGFloat = 5 * spacing
-        let totalColums: CGFloat = 4
-        let screenWidth: CGFloat = UIScreen.main.bounds.width
-        return (screenWidth - totalSpacing) / totalColums
-    }
-      
 }
 
 #Preview {
     MainView()
+        .environmentObject(ViewModel())
 }
+
+
+
+/*
+ Inche MVVM-y
+ Da filer-i chisht dasavorman dzev e:
+ Baxkacac e ereq bajinneric`
+ 1.View-ic vortex artabervum e ekrany aysinqn aystex petqe pahel miay VIEW
+ 2.Model vortex pahvum e Business Logikan` Data-n` inchvor tvyalner
+ 3.ViewModel-y vori mijocov katarvum e Model-i ev View-i mijev Kapy [Model + View # ViewModeli-i mijocov]
+ Inche ayd procesy` Model, vory uni tvyalner data ayd tvyalnery yngnum en ViewModel, vory ir hertin` methodnerov, functionnerov, hatkutyunnerov(property) abrabotka e anum ayd tvyalnery(data) ev naxapatrastum e dranq View-um ogtagorcman: View-n irenum arka `1 property-i mijocov durs e berum ayd tvyalnery(data) ViewModel-ic ev texadrum dranq hamapatasxan texerum: FINISH !!!
+ */
+
+/*
+ Stexcecinq @EnvironmentObject property ev talis enq VieModel-i hnaravorutyunnery ev ayd funkcionaly ogtagorcum enq mer View-nerum` Text-um Button-um irenc func-ional harvacnerum
+ 
+ */

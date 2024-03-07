@@ -13,6 +13,7 @@
 		E72CBF622B97634400532254 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72CBF612B97634400532254 /* MainView.swift */; };
 		E72CBF642B97639900532254 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72CBF632B97639900532254 /* Model.swift */; };
 		E72CBF672B977EAD00532254 /* Exstension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72CBF662B977EAD00532254 /* Exstension.swift */; };
+		E7DBA4302B9A17A600F48ADD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBA42F2B9A17A600F48ADD /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		E72CBF612B97634400532254 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E72CBF632B97639900532254 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E72CBF662B977EAD00532254 /* Exstension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exstension.swift; sourceTree = "<group>"; };
+		E7DBA42F2B9A17A600F48ADD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		E72CBF5F2B97464400532254 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E7DBA42F2B9A17A600F48ADD /* ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DBA4302B9A17A600F48ADD /* ViewModel.swift in Sources */,
 				E72CBF642B97639900532254 /* Model.swift in Sources */,
 				E72CBF622B97634400532254 /* MainView.swift in Sources */,
 				E72CBF512B9744EA00532254 /* CALCULATORApp.swift in Sources */,
@@ -327,9 +331,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "armyerevan1993-gmail.com.CALCULATOR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -356,9 +364,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "armyerevan1993-gmail.com.CALCULATOR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

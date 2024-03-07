@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+
+
+enum Operation {
+    case addition, subtract, multiyply, divide, none
+}
+
+
 enum Buttons: String {
     case zero = "0"
     case one = "1"
@@ -38,8 +45,6 @@ enum Buttons: String {
             return Color.Color9
         }
     }
-    
-    
     
     var buttonFontColor: Color {
         switch self {
